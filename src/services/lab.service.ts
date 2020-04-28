@@ -4,13 +4,13 @@
  * @文件描述: 部门管理服务
  * @LastEditors: Do not Edit
  * @Date: 2019-09-13 07:27:24
- * @LastEditTime: 2020-04-28 19:22:49
+ * @LastEditTime: 2020-04-28 20:22:11
  */
 import { action } from 'mobx';
 import HttpClient from '../utils/HttpClient';
 import { BACKEND_URL, messageFail } from './common';
 import { Pagination, initalPaginationValue } from '@/interfaces/common';
-import { LabModel, LabSearchProps, LabEditModel } from '@/interfaces/lab';
+import { LabModel, LabSearchProps, CompetitionEventEdit } from '@/interfaces/lab';
 
 import { LabStore } from '@/stores/lab.store';
 
@@ -48,7 +48,7 @@ export class LabService {
   }
 
   @action
-  public async update(data: LabEditModel): Promise<boolean> {
+  public async update(data: CompetitionEventEdit): Promise<boolean> {
     this.store.loading = true;
     try {
       const result = await this.http.postJSON<string>(
@@ -69,7 +69,7 @@ export class LabService {
   }
 
   @action
-  public async add(data: LabEditModel): Promise<boolean> {
+  public async add(data: CompetitionEventEdit): Promise<boolean> {
     this.store.loading = true;
     try {
       const result = await this.http.postJSON<string>(

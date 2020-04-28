@@ -4,7 +4,7 @@
  * @作者: 李洪文
  * @LastEditors: Do not Edit
  * @Date: 2019-05-09 15:40:17
- * @LastEditTime: 2020-04-28 19:57:24
+ * @LastEditTime: 2020-04-28 20:22:31
  */
 import * as React from 'react';
 import { observer, inject } from 'mobx-react';
@@ -47,8 +47,8 @@ class LabPage extends React.Component<LabPageProps> {
     { title: '项目名称', dataIndex: 'competitionEventName' },
     { title: '开始时间', dataIndex: 'planStartAt' },
     { title: '结束时间', dataIndex: 'planEndAt' },
-    { title: '组别', dataIndex: 'suiteType' },
-    { title: '状态', dataIndex: 'status' },
+    { title: '组别', dataIndex: 'suiteTypeDesc' },
+    { title: '状态', dataIndex: 'statusDesc' },
     { title: '创建人', dataIndex: 'createdBy' },
     { title: '更新人', dataIndex: 'updatedBy' },
     {
@@ -198,7 +198,7 @@ class LabPage extends React.Component<LabPageProps> {
     if (this.props.lab) {
       result = this.props.labService.update({
         ...data,
-        labCode: this.props.lab.competitionEventCode,
+        competitionEventCode: this.props.lab.competitionEventCode,
       });
     } else {
       result = this.props.labService.add(data);
